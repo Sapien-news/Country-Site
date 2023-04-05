@@ -18,7 +18,11 @@ loader.load("untitled.glb", function (gltf) {
     requestAnimationFrame(animate);
 
     // Rotate the object as you scroll
-    gltf.scene.rotation.y += window.scrollY * 0.001;
+// Rotate the object as you scroll
+    window.addEventListener('scroll', () => {
+       gltf.scene.rotation.y = window.scrollY * 0.001;
+    });
+  
 
     // Render the scene
     renderer.render(scene, camera);
@@ -28,20 +32,21 @@ loader.load("untitled.glb", function (gltf) {
 });
 
 
-// get the text container element
-const textContainer = document.getElementById('text-container');
+// get all the text-line elements
+const textLines = document.querySelectorAll('.text-line');
 
 // create a new Intersection Observer
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      // add the "animate" class to the text container
-      textContainer.classList.add('animate');
+      // add the "animate" class to the text-line element
+      entry.target.classList.add('animate');
       // unobserve the target element
       observer.unobserve(entry.target);
     }
   });
-});
+}, { threshold: 0.1 });
 
-// observe the text container element
-observer.observe(textContainer);
+// observe each text-line element
+textLines.forEach(line => observer.observe(line));
+

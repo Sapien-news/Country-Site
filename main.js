@@ -16,7 +16,7 @@ loader.load("scene.glb", function (gltf) {
     scene.add(pointLight);
   
     // Set the initial position of the camera
-    camera.position.set(0, 0, 25); // Adjust the Z value to control the distance from the object
+    camera.position.set(100, 0, 0); // Adjust the Z value to control the distance from the object
     camera.lookAt(scene.position);
   
     // Animate the scene

@@ -26,3 +26,22 @@ loader.load("untitled.glb", function (gltf) {
 
   animate();
 });
+
+
+// get the text container element
+const textContainer = document.getElementById('text-container');
+
+// create a new Intersection Observer
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // add the "animate" class to the text container
+      textContainer.classList.add('animate');
+      // unobserve the target element
+      observer.unobserve(entry.target);
+    }
+  });
+});
+
+// observe the text container element
+observer.observe(textContainer);

@@ -6,12 +6,12 @@ const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("canv
 // Load the GLTF file
 const loader = new THREE.GLTFLoader();
 
-loader.load("untitled.glb", function (gltf) {
+loader.load("scene.glb", function (gltf) {
   // Add the loaded object to the scene
   scene.add(gltf.scene);
 
   // Set the initial position of the camera
-  camera.position.z = 1;
+  camera.position.z = 10;
 
   // Animate the scene
   function animate() {

@@ -12,21 +12,21 @@ loader.load("scene.glb", function (gltf) {
 
   // Set the initial position of the camera
   camera.position.z = 5;
+    // Set the initial position of the camera
+    camera.position.set(0, 0, 10); // Adjust the Z value to control the distance from the object
+    camera.lookAt(scene.position);
 
-  // Animate the scene
-  function animate() {
-    requestAnimationFrame(animate);
 
-    // Rotate the object as you scroll
-// Rotate the object as you scroll
-    window.addEventListener('click', () => {
-       gltf.scene.rotation.y = window.scrollY * 0.5;
-    });
-  
-
-    // Render the scene
-    renderer.render(scene, camera);
-  }
+    // Animate the scene
+    function animate() {
+        requestAnimationFrame(animate);
+    
+        // Rotate the object continuously
+        gltf.scene.rotation.y += 0.01;
+    
+        // Render the scene
+        renderer.render(scene, camera);
+    }
 
   animate();
 });

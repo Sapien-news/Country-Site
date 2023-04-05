@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>3D object rotation on scroll</title>
+  <style>
+    body {
+      height: 2000px; /* add some height to the page for scrolling */
+    }
+    canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    // Create a scene, camera, and renderer
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Create a 3D object
+    const geometry = new THREE.BoxGeometry();
+    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    const cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
+
+    // Set up event listener for scroll
+    window.addEventListener('scroll', () => {
+      // Update rotation of 3D object based on scroll position
+      const rotation = window.scrollY * 0.01;
+      cube.rotation.x = rotation;
+      cube.rotation.y = rotation;
+      cube.rotation.z = rotation;
+    });
+
+    // Render the scene
+    function animate() {
+      requestAnimationFrame(animate);
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
+</body>
+</html>

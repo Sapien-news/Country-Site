@@ -6,7 +6,7 @@ const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("canv
 // Load the GLTF file
 const loader = new THREE.GLTFLoader();
 
-loader.load("rename.gltf", function (gltf) {
+loader.load("untitled.glb", function (gltf) {
   // Add the loaded object to the scene
   scene.add(gltf.scene);
 

@@ -11,7 +11,7 @@ loader.load("untitled.glb", function (gltf) {
   scene.add(gltf.scene);
 
   // Set the initial position of the camera
-  camera.position.z = 5;
+  camera.position.z = 1;
 
   // Animate the scene
   function animate() {

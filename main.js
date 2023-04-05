@@ -7,27 +7,31 @@ const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("canv
 const loader = new THREE.GLTFLoader();
 
 loader.load("scene.glb", function (gltf) {
-  // Add the loaded object to the scene
-  scene.add(gltf.scene);
-
+    // Add the loaded object to the scene
+    scene.add(gltf.scene);
+  
+    // Create a point light and add it to the scene
+    const pointLight = new THREE.PointLight(0xffffff, 1, 0);
+    pointLight.position.set(10, 10, 10);
+    scene.add(pointLight);
+  
     // Set the initial position of the camera
     camera.position.set(0, 0, 10); // Adjust the Z value to control the distance from the object
     camera.lookAt(scene.position);
-
-
+  
     // Animate the scene
     function animate() {
-        requestAnimationFrame(animate);
-    
-        // Rotate the object continuously
-        gltf.scene.rotation.y += 0.01;
-    
-        // Render the scene
-        renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+  
+      // Rotate the object continuously
+      gltf.scene.rotation.y += 0.01;
+  
+      // Render the scene
+      renderer.render(scene, camera);
     }
-
-  animate();
-});
+  
+    animate();
+});  
 
 // get all the text-line elements
 const textLines = document.querySelectorAll('.text-line');

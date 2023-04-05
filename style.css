@@ -23,11 +23,13 @@ html, body {
   height: auto;
 }
 
-  .text-line {
-    opacity: 0;
-    transform: translateX(-100%);
-    transition: all 0.5s ease-out;
-  }
+.text-line {
+  color: #ffffff; /* Choose a color that contrasts with the background color */
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 0.5s ease-out;
+}
+
   
   .text-line.animate {
     opacity: 1;

@@ -10,11 +10,6 @@ loader.load("scene.glb", function (gltf) {
     // Add the loaded object to the scene
     scene.add(gltf.scene);
   
-    // Create a point light and add it to the scene
-    const pointLight = new THREE.PointLight(0xffffff, 1, 0);
-    pointLight.position.set(10, 10, 10);
-    scene.add(pointLight);
-  
     // Set the initial position of the camera
     camera.position.set(100, 0, 0); // Adjust the Z value to control the distance from the object
     camera.lookAt(scene.position);

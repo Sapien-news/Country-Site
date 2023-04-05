@@ -10,8 +10,6 @@ loader.load("scene.glb", function (gltf) {
   // Add the loaded object to the scene
   scene.add(gltf.scene);
 
-  // Set the initial position of the camera
-  camera.position.z = 5;
     // Set the initial position of the camera
     camera.position.set(0, 0, 10); // Adjust the Z value to control the distance from the object
     camera.lookAt(scene.position);

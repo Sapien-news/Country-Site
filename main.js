@@ -19,8 +19,8 @@ loader.load("scene.glb", function (gltf) {
 
     // Rotate the object as you scroll
 // Rotate the object as you scroll
-    window.addEventListener('scroll', () => {
-       gltf.scene.rotation.y = window.scrollY * 0.001;
+    window.addEventListener('click', () => {
+       gltf.scene.rotation.y = window.scrollY * 0.5;
     });
   
 
